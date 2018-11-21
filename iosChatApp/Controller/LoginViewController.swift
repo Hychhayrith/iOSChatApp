@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         registerBtn.layer.masksToBounds = true
         
         // Mark: Handle click
-        registerBtn.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+        registerBtn.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         
         registerBtn.translatesAutoresizingMaskIntoConstraints = false
         return registerBtn
@@ -158,6 +158,25 @@ class LoginViewController: UIViewController {
 // Mark: -> Objective C function to handle button actions
 extension LoginViewController {
     
+    @objc func handleLoginRegister () {
+        loginRegisterSegmentedController.selectedSegmentIndex == 0 ? handleLogin() : handleRegister()
+    }
+    
+    @objc func handleLogin() {
+        guard let email = emailInputConstraint.text, let password = passwordInputConstraint.text else {
+            print("Form is not valid")
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                print("Error while sign in the iOS Chat App with code : \(error!)")
+            }
+            
+            print("Signed IN")
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     // Mark: Save user to database
     @objc func handleRegister (){
         guard let email = emailInputConstraint.text, let password = passwordInputConstraint.text, let name = nameInputConstraint.text else {
@@ -186,6 +205,8 @@ extension LoginViewController {
                 }
                 
                 print("Saved user to Firebase")
+                // Mark: User already logged
+                self.dismiss(animated: true, completion: nil)
             })
         }
     }
