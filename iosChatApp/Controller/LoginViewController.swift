@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
+    var inputConstrainerHeightAnchor: NSLayoutConstraint?
+    var nameInputHeightAnchor: NSLayoutConstraint?
+    var emailInputHeightAnchor: NSLayoutConstraint?
+    var passwordInputHeightAnchor: NSLayoutConstraint?
     
     let inputConstrainerView: UIView = {
         let vw = UIView()
@@ -90,11 +94,39 @@ class LoginViewController: UIViewController {
         return img
     }()
     
-    let loginRegisterSegmentedController: UISegmentedControl = {
+    lazy var loginRegisterSegmentedController: UISegmentedControl = {
         let segment = UISegmentedControl(items: ["Login", "Register"])
+        segment.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        segment.tintColor = .white
+        segment.selectedSegmentIndex = 1
+        segment.addTarget(self, action: #selector(handleLoginRegisterSegment), for: .valueChanged)
         segment.translatesAutoresizingMaskIntoConstraints = false
         return segment
     }()
+    
+    @objc func handleLoginRegisterSegment () {
+        let title = loginRegisterSegmentedController.titleForSegment(at: loginRegisterSegmentedController.selectedSegmentIndex)
+        loginRegisterButton.setTitle(title, for: .normal)
+        
+        // Mark: Set height of input constrainerView
+        inputConstrainerHeightAnchor?.constant = loginRegisterSegmentedController.selectedSegmentIndex == 0 ? 100 : 150
+        
+        // Mark: Set height of name
+        nameInputHeightAnchor?.isActive = false
+        nameInputHeightAnchor = nameInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: loginRegisterSegmentedController.selectedSegmentIndex == 0 ? 0 : 1/3)
+        nameInputHeightAnchor?.isActive = true
+        nameInputConstraint.isHidden = loginRegisterSegmentedController.selectedSegmentIndex == 0
+        
+        // Mark: set height email
+        emailInputHeightAnchor?.isActive = false
+        emailInputHeightAnchor = emailInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: loginRegisterSegmentedController.selectedSegmentIndex == 0 ? 1/2 : 1/3)
+        emailInputHeightAnchor?.isActive = true
+        
+        // Mark: set height password
+        passwordInputHeightAnchor?.isActive = false
+        passwordInputHeightAnchor = passwordInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: loginRegisterSegmentedController.selectedSegmentIndex == 0 ? 1/2 : 1/3)
+        passwordInputHeightAnchor?.isActive = true
+    }
    
 
     override func viewDidLoad() {
@@ -161,52 +193,59 @@ extension LoginViewController {
 
 // Mark: -> view constrainer
 extension LoginViewController {
+    
     func setupInputContrainerView(){
-        NSLayoutConstraint.activate([
-            inputConstrainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            inputConstrainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            inputConstrainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24),
-            inputConstrainerView.heightAnchor.constraint(equalToConstant: 150)
-        ])
+        
+        
+        inputConstrainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        inputConstrainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        inputConstrainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
+        
+        inputConstrainerHeightAnchor = inputConstrainerView.heightAnchor.constraint(equalToConstant: 150)
+        inputConstrainerHeightAnchor?.isActive = true
+        
         
         view.addSubview(nameInputConstraint)
         view.addSubview(nameSeparatorView)
         
-        NSLayoutConstraint.activate([
-            nameInputConstraint.topAnchor.constraint(equalTo: inputConstrainerView.topAnchor),
-            nameInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12),
-            nameInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12),
-            nameInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3),
-            
-            nameSeparatorView.topAnchor.constraint(equalTo: nameInputConstraint.bottomAnchor),
-            nameSeparatorView.heightAnchor.constraint(equalToConstant: 1),
-            nameSeparatorView.widthAnchor.constraint(equalTo: nameInputConstraint.widthAnchor),
-            nameSeparatorView.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor)
-        ])
+        
+   
+        nameInputConstraint.topAnchor.constraint(equalTo: inputConstrainerView.topAnchor).isActive = true
+        nameInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12).isActive = true
+        nameInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12).isActive = true
+        nameInputHeightAnchor = nameInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3)
+        nameInputHeightAnchor?.isActive = true
+    
+        nameSeparatorView.topAnchor.constraint(equalTo: nameInputConstraint.bottomAnchor).isActive = true
+        nameSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        nameSeparatorView.widthAnchor.constraint(equalTo: nameInputConstraint.widthAnchor).isActive = true
+        nameSeparatorView.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor).isActive = true
+    
         
         view.addSubview(emailInputConstraint)
         view.addSubview(emailSeparatorView)
         
-        NSLayoutConstraint.activate([
-            emailInputConstraint.topAnchor.constraint(equalTo: nameInputConstraint.bottomAnchor),
-            emailInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12),
-            emailInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12),
-            emailInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3),
-            
-            emailSeparatorView.topAnchor.constraint(equalTo: emailInputConstraint.bottomAnchor),
-            emailSeparatorView.heightAnchor.constraint(equalToConstant: 1),
-            emailSeparatorView.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor),
-            emailSeparatorView.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor)
-            ])
+        
+        emailInputConstraint.topAnchor.constraint(equalTo: nameInputConstraint.bottomAnchor).isActive = true
+        emailInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12).isActive = true
+        emailInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12).isActive = true
+        emailInputHeightAnchor = emailInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3)
+        emailInputHeightAnchor?.isActive = true
+        
+        emailSeparatorView.topAnchor.constraint(equalTo: emailInputConstraint.bottomAnchor).isActive = true
+        emailSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        emailSeparatorView.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor).isActive = true
+        emailSeparatorView.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor).isActive = true
         
         view.addSubview(passwordInputConstraint)
         
-        NSLayoutConstraint.activate([
-            passwordInputConstraint.topAnchor.constraint(equalTo: emailInputConstraint.bottomAnchor),
-            passwordInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12),
-            passwordInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12),
-            passwordInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3)
-        ])
+        
+        passwordInputConstraint.topAnchor.constraint(equalTo: emailInputConstraint.bottomAnchor).isActive = true
+        passwordInputConstraint.widthAnchor.constraint(equalTo: inputConstrainerView.widthAnchor, constant: -12).isActive = true
+        passwordInputConstraint.leftAnchor.constraint(equalTo: inputConstrainerView.leftAnchor, constant: 12).isActive = true
+        passwordInputHeightAnchor = passwordInputConstraint.heightAnchor.constraint(equalTo: inputConstrainerView.heightAnchor, multiplier: 1/3)
+        passwordInputHeightAnchor?.isActive = true
+        
     }
     
     func setupLoginRegisterButton() {
