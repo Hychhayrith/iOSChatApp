@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4046388321A6C30500AD5A75 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388221A6C30500AD5A75 /* NewMessageViewController.swift */; };
+		4046388821A6CC8100AD5A75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388721A6CC8100AD5A75 /* User.swift */; };
 		409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7921A1F750004B0367 /* AppDelegate.swift */; };
-		409ACF7C21A1F750004B0367 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7B21A1F750004B0367 /* ViewController.swift */; };
+		409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7B21A1F750004B0367 /* MessageViewController.swift */; };
 		409ACF7F21A1F750004B0367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACF7D21A1F750004B0367 /* Main.storyboard */; };
 		409ACF8121A1F759004B0367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409ACF8021A1F759004B0367 /* Assets.xcassets */; };
 		409ACF8421A1F759004B0367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACF8221A1F759004B0367 /* LaunchScreen.storyboard */; };
@@ -19,9 +21,11 @@
 
 /* Begin PBXFileReference section */
 		3D310A7E075337E584C1985A /* Pods-iosChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosChatApp/Pods-iosChatApp.release.xcconfig"; sourceTree = "<group>"; };
+		4046388221A6C30500AD5A75 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		4046388721A6CC8100AD5A75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = iosChatApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		409ACF7621A1F750004B0367 /* iosChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409ACF7921A1F750004B0367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		409ACF7B21A1F750004B0367 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		409ACF7B21A1F750004B0367 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		409ACF7E21A1F750004B0367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		409ACF8021A1F759004B0367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		409ACF8321A1F759004B0367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +56,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4046388621A6CBB600AD5A75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4046388721A6CC8100AD5A75 /* User.swift */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		409ACF6D21A1F750004B0367 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +86,7 @@
 		409ACF7821A1F750004B0367 /* iosChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				4046388621A6CBB600AD5A75 /* Model */,
 				409ACF8B21A1FB4F004B0367 /* Controller */,
 				409ACF7921A1F750004B0367 /* AppDelegate.swift */,
 				409ACF7D21A1F750004B0367 /* Main.storyboard */,
@@ -87,8 +101,9 @@
 		409ACF8B21A1FB4F004B0367 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				409ACF7B21A1F750004B0367 /* ViewController.swift */,
+				409ACF7B21A1F750004B0367 /* MessageViewController.swift */,
 				409ACF8C21A1FB8F004B0367 /* LoginViewController.swift */,
+				4046388221A6C30500AD5A75 /* NewMessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,8 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				409ACF8D21A1FB8F004B0367 /* LoginViewController.swift in Sources */,
-				409ACF7C21A1F750004B0367 /* ViewController.swift in Sources */,
+				409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */,
 				409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */,
+				4046388821A6CC8100AD5A75 /* User.swift in Sources */,
+				4046388321A6C30500AD5A75 /* NewMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +398,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73D5WG8A2G;
 				INFOPLIST_FILE = iosChatApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,7 +418,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73D5WG8A2G;
 				INFOPLIST_FILE = iosChatApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

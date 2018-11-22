@@ -170,6 +170,7 @@ extension LoginViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 print("Error while sign in the iOS Chat App with code : \(error!)")
+                return
             }
             
             print("Signed IN")
