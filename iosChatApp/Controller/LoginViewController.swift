@@ -90,6 +90,9 @@ class LoginViewController: UIViewController {
        let img = UIImageView()
         img.image = UIImage(named: "gameofthrones_splash")
         img.contentMode = .scaleAspectFill
+        
+        img.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImagePicker)))
+        img.isUserInteractionEnabled = true
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()
@@ -178,39 +181,7 @@ extension LoginViewController {
         }
     }
     
-    // Mark: Save user to database
-    @objc func handleRegister (){
-        guard let email = emailInputConstraint.text, let password = passwordInputConstraint.text, let name = nameInputConstraint.text else {
-            print("Form is not valid")
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if(error != nil){
-                print(error!)
-                return
-            }
-            
-            guard let uid = user?.user.uid else {
-                return
-            }
-            // Mark: Successfully authenticate user
-            
-            let ref = Database.database().reference(fromURL: "https://ioschatapp-51603.firebaseio.com/")
-            let userReference = ref.child("users").child(uid)
-            let values = ["name": name, "email": email, "password": password]
-            userReference.updateChildValues(values, withCompletionBlock: { (error, dataRef) in
-                if error != nil {
-                    print(error!)
-                    return
-                }
-                
-                print("Saved user to Firebase")
-                // Mark: User already logged
-                self.dismiss(animated: true, completion: nil)
-            })
-        }
-    }
+   
 }
 
 // Mark: -> view constrainer

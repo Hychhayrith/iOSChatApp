@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4046388321A6C30500AD5A75 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388221A6C30500AD5A75 /* NewMessageViewController.swift */; };
 		4046388821A6CC8100AD5A75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388721A6CC8100AD5A75 /* User.swift */; };
+		4046388A21A708BD00AD5A75 /* LoginViewController + Hanlder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388921A708BD00AD5A75 /* LoginViewController + Hanlder.swift */; };
 		409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7921A1F750004B0367 /* AppDelegate.swift */; };
 		409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7B21A1F750004B0367 /* MessageViewController.swift */; };
 		409ACF7F21A1F750004B0367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACF7D21A1F750004B0367 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		3D310A7E075337E584C1985A /* Pods-iosChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosChatApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosChatApp/Pods-iosChatApp.release.xcconfig"; sourceTree = "<group>"; };
 		4046388221A6C30500AD5A75 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		4046388721A6CC8100AD5A75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = iosChatApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
+		4046388921A708BD00AD5A75 /* LoginViewController + Hanlder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController + Hanlder.swift"; sourceTree = "<group>"; };
 		409ACF7621A1F750004B0367 /* iosChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409ACF7921A1F750004B0367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		409ACF7B21A1F750004B0367 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				409ACF7B21A1F750004B0367 /* MessageViewController.swift */,
 				409ACF8C21A1FB8F004B0367 /* LoginViewController.swift */,
 				4046388221A6C30500AD5A75 /* NewMessageViewController.swift */,
+				4046388921A708BD00AD5A75 /* LoginViewController + Hanlder.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409ACF8D21A1FB8F004B0367 /* LoginViewController.swift in Sources */,
+				4046388A21A708BD00AD5A75 /* LoginViewController + Hanlder.swift in Sources */,
 				409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */,
 				409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */,
 				4046388821A6CC8100AD5A75 /* User.swift in Sources */,
