@@ -23,7 +23,8 @@ class MessageViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SignOut", style: .plain, target: self, action: #selector(handleLogout))
         
         let newMessageIcon = UIImage(named: "newMessageIcon")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageIcon, style: .plain, target: self, action: #selector(handleNewMessage))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageIcon, style: .plain, target: self, action: #selector(handleNewMessage))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageIcon, style: .plain, target: self, action: #selector(handleChatLog))
         checkUserLogin()
     }
 }
@@ -46,9 +47,9 @@ extension MessageViewController {
                 Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if let dictionary = snapshot.value as? [String: AnyObject] {
-                        //self.navigationItem.title = dictionary["name"] as? String
                         let user = User(dictionary: dictionary)
                         self.setupNavBarWithUser(user: user)
+                        
                     } 
                 }, withCancel: nil)
             }
@@ -63,6 +64,7 @@ extension MessageViewController {
         
         let containerView: UIView = {
            let vw = UIView()
+            vw.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleChatLog)))
             vw.translatesAutoresizingMaskIntoConstraints = false
             return vw
         }()
@@ -108,6 +110,7 @@ extension MessageViewController {
         
         
         self.navigationItem.titleView = titleView
+        
     }
     
     @objc func handleLogout() {
@@ -123,9 +126,11 @@ extension MessageViewController {
     
 }
 
-// Mark: -> Handle Logout
+// Mark: -> Handle Chat log
 extension MessageViewController {
-    
-    
+    @objc func handleChatLog() {
+        let chatLogViewController = ChatLogViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(chatLogViewController, animated: true)
+    }
 }
 

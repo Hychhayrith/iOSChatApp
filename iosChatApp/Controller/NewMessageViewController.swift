@@ -41,6 +41,7 @@ class NewMessageViewController: UITableViewController {
             cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
         }
         
+        
         return cell
     }
     
