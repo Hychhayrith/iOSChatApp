@@ -22,19 +22,21 @@ extension UIImageView {
         }
         
         // otherwise download the image and store to cache
-        let profileUrl = URL(string: urlString)
-        URLSession.shared.dataTask(with: profileUrl!, completionHandler: {(data, response, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            DispatchQueue.main.async {
-                if let downloadedImage = UIImage(data: data!){
-                    imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
-                    self.image = downloadedImage
+        if let profileUrl = URL(string: urlString){
+            URLSession.shared.dataTask(with: profileUrl, completionHandler: {(data, response, error) in
+                if let error = error {
+                    print(error)
+                    return
                 }
-            }
-        }).resume()
+                DispatchQueue.main.async {
+                    if let downloadedImage = UIImage(data: data!){
+                        imageCache.setObject(downloadedImage, forKey: urlString as AnyObject)
+                        self.image = downloadedImage
+                    }
+                }
+            }).resume()
+        }
+        
     }
     
 }

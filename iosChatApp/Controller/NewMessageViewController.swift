@@ -56,10 +56,10 @@ extension NewMessageViewController {
     func getUserList() {
         Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User()
-                user.email = (dictionary["email"] as? String)!
-                user.name = (dictionary["name"] as? String)!
-                user.profileImageUrl = (dictionary["profileImageUrl"] as? String)!
+                let user = User(dictionary: dictionary)
+//                user.email = (dictionary["email"] as? String)!
+//                user.name = (dictionary["name"] as? String)!
+//                user.profileImageUrl = (dictionary["profileImageUrl"] as? String)!
 //                print("name: \(user.name)")
 //                print("email: \(user.email)")
                 self.users.append(user)
@@ -82,7 +82,7 @@ class UserCell: UITableViewCell {
     
     let profileImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "song_jong_ki")
+        //imageView.image = UIImage(named: "song_jong_ki")
         imageView.layer.cornerRadius = 24
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill

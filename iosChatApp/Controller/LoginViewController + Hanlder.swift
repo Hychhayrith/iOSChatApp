@@ -43,11 +43,9 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
                             print(error)
                             return
                         }
-                        
                         guard let url = url else {
                             return
                         }
-                        print("Execute until here")
                         let values = ["name": name, "email": email, "password": password, "profileImageUrl": url.absoluteString]
                         
                         self.registerUserIntoDatabaseWithUUID(uid: uid, values: values as [String: AnyObject])
@@ -62,7 +60,6 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
     fileprivate func registerUserIntoDatabaseWithUUID(uid: String, values: [String: AnyObject]) {
         let ref = Database.database().reference(fromURL: "https://ioschatapp-51603.firebaseio.com/")
         let userReference = ref.child("users").child(uid)
-        
         userReference.updateChildValues(values, withCompletionBlock: { (error, dataRef) in
             if error != nil {
                 print(error!)
