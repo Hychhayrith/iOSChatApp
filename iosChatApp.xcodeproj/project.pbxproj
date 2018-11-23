@@ -10,6 +10,7 @@
 		4046388321A6C30500AD5A75 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388221A6C30500AD5A75 /* NewMessageViewController.swift */; };
 		4046388821A6CC8100AD5A75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388721A6CC8100AD5A75 /* User.swift */; };
 		4046388A21A708BD00AD5A75 /* LoginViewController + Hanlder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388921A708BD00AD5A75 /* LoginViewController + Hanlder.swift */; };
+		4046388D21A79EBB00AD5A75 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046388C21A79EBB00AD5A75 /* Extension.swift */; };
 		409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7921A1F750004B0367 /* AppDelegate.swift */; };
 		409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409ACF7B21A1F750004B0367 /* MessageViewController.swift */; };
 		409ACF7F21A1F750004B0367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409ACF7D21A1F750004B0367 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		4046388221A6C30500AD5A75 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		4046388721A6CC8100AD5A75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = iosChatApp/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		4046388921A708BD00AD5A75 /* LoginViewController + Hanlder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController + Hanlder.swift"; sourceTree = "<group>"; };
+		4046388C21A79EBB00AD5A75 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		409ACF7621A1F750004B0367 /* iosChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409ACF7921A1F750004B0367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		409ACF7B21A1F750004B0367 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		4046388B21A79E9F00AD5A75 /* Helps */ = {
+			isa = PBXGroup;
+			children = (
+				4046388C21A79EBB00AD5A75 /* Extension.swift */,
+			);
+			name = Helps;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		409ACF6D21A1F750004B0367 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +99,7 @@
 		409ACF7821A1F750004B0367 /* iosChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				4046388B21A79E9F00AD5A75 /* Helps */,
 				4046388621A6CBB600AD5A75 /* Model */,
 				409ACF8B21A1FB4F004B0367 /* Controller */,
 				409ACF7921A1F750004B0367 /* AppDelegate.swift */,
@@ -249,6 +261,7 @@
 			files = (
 				409ACF8D21A1FB8F004B0367 /* LoginViewController.swift in Sources */,
 				4046388A21A708BD00AD5A75 /* LoginViewController + Hanlder.swift in Sources */,
+				4046388D21A79EBB00AD5A75 /* Extension.swift in Sources */,
 				409ACF7C21A1F750004B0367 /* MessageViewController.swift in Sources */,
 				409ACF7A21A1F750004B0367 /* AppDelegate.swift in Sources */,
 				4046388821A6CC8100AD5A75 /* User.swift in Sources */,
